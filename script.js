@@ -6,26 +6,76 @@
     const closeResultsBtn = document.getElementById('closeResults');
 
     const searchableContent = [
-        { type: 'article', title: 'Florida Teacher Who Mocked Looks, Brains Of His Students Now On Firing Line', desc: 'Florida teacher under fire after allegedly mocking the appearance and intelligence of his students in front of the whole class.', url: 'https://www.thesmokinggun.com/buster/florida/florida-teacher-mocks-students-768562', badge: 'today' },
-        { type: 'article', title: 'Man Arrested For Washing Cursing Girlfriend\'s Mouth Out With Liquid Dish Soap', desc: 'Domestic disturbance takes a bizarre turn after a man tries to "cleanse" his partner\'s vocabulary with dish soap.', url: 'https://www.thesmokinggun.com/buster/domestic-abuse/man-busted-for-soap-attack-546091', badge: 'yesterday' },
-        { type: 'article', title: 'Locked Up: Pennsylvania Cops Arrest Dealer, 20, Who Held Woman\'s Lost iPhone For Ransom', desc: 'A 20-year-old dealer is behind bars after demanding ransom for a lost iPhone — a scheme that quickly crumbled.', url: 'https://www.thesmokinggun.com/buster/iphone-held-for-ransom-687341', badge: 'this week' },
-        { type: 'article', title: 'Press Pass: The Ripper\'s Secret Supper - Inside the FBI\'s Off-the-Record Dinner', desc: 'Exclusive details from a confidential dinner where FBI minds discussed the Chesapeake Ripper — and possibly dined with him.', url: 'articles/art-press-pass.html', badge: 'last week' },
-        { type: 'article', title: 'HOW THE RIPPER RIPS: AN EXCLUSIVE INTERVIEW', desc: 'Something terrible lurks within the walls of the Baltimore State Hospital for the Criminally Insane. Dr. Abel Gideon might be the Chesapeake Ripper.', url: 'articles/art-ripper.html', badge: 'feature' },
-        { type: 'article', title: 'THE SNACK SLASHER STRIKES AGAIN — AND HE\'S NOT SORRY!', desc: 'He leaves no fingerprints, only crumbs. Police say the culprit is "dangerously peckish."', url: '#', badge: 'feature' },
-        { type: 'article', title: 'WHITE MUSTACHES AND QUIET PAWS: WHO STEP ON MY FLOWERS?', desc: 'Be careful! Ginger cats are incredibly adorable. A gang of ginger fluffballs is currently operating in Baltimore.', url: '#', badge: 'feature' },
-        { type: 'tattle', title: 'Florida Teacher Mocking Students', desc: 'Florida Teacher Who Mocked Looks, Brains Of His Students Now On Firing Line', url: 'https://www.thesmokinggun.com/buster/florida/florida-teacher-mocks-students-768562', badge: 'today' },
-        { type: 'tattle', title: 'Dish Soap Attack', desc: 'Man Arrested For Washing Cursing Girlfriend\'s Mouth Out With Liquid Dish Soap', url: 'https://www.thesmokinggun.com/buster/domestic-abuse/man-busted-for-soap-attack-546091', badge: 'yesterday' },
-        { type: 'tattle', title: 'iPhone Ransom', desc: 'Pennsylvania Cops Arrest Dealer, 20. Who Held Woman\'s Lost iPhone For Ransom', url: 'https://www.thesmokinggun.com/buster/iphone-held-for-ransom-687341', badge: 'this week' },
-        { type: 'tattle', title: 'Ripper\'s Secret Supper', desc: 'Press Pass: The Ripper\'s Secret Supper - Inside the FBI\'s Off-the-Record Dinner', url: 'https://i.pinimg.com/736x/e5/ea/7c/e5ea7c48233acbc7dee3166dbff428d1.jpg', badge: 'last week' },
-        { type: 'tattle', title: 'Wonderful Translator', desc: 'An incredibly wonderful translator translates incredibly wonderful things! We love you, bleating of the silambs!', url: 'https://t.me/lecterpurr', badge: 'extra' },
-        { type: 'tattle', title: 'HEU Confession', desc: 'A whole channel dedicated to HEU? You should explore this further! Riding on two different horses since 2004.', url: 'https://t.me/heuconfession', badge: 'extra' },
-        { type: 'tattle', title: 'Hannibal Confession', desc: 'The coolest Hannibal Confession is already waiting for you! There\'s plenty to enjoy here.', url: 'https://t.me/hannibalek', badge: 'extra' },
-        { type: 'telegram', title: 'Gasp! An incredibly wonderful translator', desc: 'We love you, bleating of the silambs! A tribute to the translator who brings dark corners to light.', url: 'https://t.me/lecterpurr', badge: 'extra' },
-        { type: 'telegram', title: 'Hehe, it\'s very beautiful here!', desc: 'A whole channel dedicated to HEU? You should explore this further! Riding on two different horses since 2004.', url: 'https://t.me/heuconfession', badge: 'extra' },
-        { type: 'telegram', title: 'Look! The coolest Hannibal Confession', desc: 'Unseen files, confessions, and the whispers of Baltimore\'s darkest society.', url: 'https://t.me/hannibalek', badge: 'extra' },
-        { type: 'interview', title: 'HOW THE RIPPER RIPS: AN EXCLUSIVE INTERVIEW', desc: 'Something terrible lurks within the walls of the Baltimore State Hospital for the Criminally Insane. Dr. Abel Gideon might be the Chesapeake Ripper.', url: 'articles/art-ripper.html', badge: 'interview' },
-        { type: 'interview', title: 'THE SNACK SLASHER STRIKES AGAIN', desc: 'He leaves no fingerprints, only crumbs. Police say the culprit is "dangerously peckish."', url: '#', badge: 'interview' },
-        { type: 'interview', title: 'WHITE MUSTACHES AND QUIET PAWS', desc: 'Be careful! Ginger cats are incredibly adorable. A gang of ginger fluffballs is currently operating in Baltimore.', url: '#', badge: 'interview' }
+        {
+            type: 'article',
+            title: 'Учитель из Флориды, который высмеивал внешность и интеллект своих учеников, теперь сам оказался на грани увольнения',
+            desc: 'Учитель из Флориды под огнем критики после того, как якобы насмехался над внешностью и интеллектом своих учеников перед всем классом.',
+            url: 'https://www.thesmokinggun.com/buster/florida/florida-teacher-mocks-students-768562',
+            badge: 'сегодня'
+        },
+        {
+            type: 'article',
+            title: 'Арестован мужчина, который мыл рот своей девушке жидким средством для мытья посуды за сквернословие',
+            desc: 'Домашняя ссора принимает странный оборот после того, как мужчина попытался «очистить» лексикон своей партнерши с помощью средства для мытья посуды.',
+            url: 'https://www.thesmokinggun.com/buster/domestic-abuse/man-busted-for-soap-attack-546091',
+            badge: 'вчера'
+        },
+        {
+            type: 'article',
+            title: 'Под замком: полиция Пенсильвании арестовала двадцатилетнего наркоторговца, который удерживал найденный iPhone женщины и требовал за него выкуп',
+            desc: '20-летний дилер за решеткой после того, как потребовал выкуп за потерянный iPhone — схема быстро рухнула.',
+            url: 'https://www.thesmokinggun.com/buster/iphone-held-for-ransom-687341',
+            badge: 'эта неделя'
+        },
+        {
+            type: 'tattle',
+            title: 'Пресс-пропуск: Тайный ужин Потрошителя — закулисный репортаж с неофициального приёма ФБР',
+            desc: 'Эксклюзивные подробности с конфиденциального ужина, где умы ФБР обсуждали Чесапикского Потрошителя — и, возможно, ужинали с ним.',
+            url: 'https://i.pinimg.com/736x/e5/ea/7c/e5ea7c48233acbc7dee3166dbff428d1.jpg',
+            badge: 'прошлая неделя'
+        },
+        {
+            type: 'interview',
+            title: 'КАК ПОТРОШИТЕЛЬ ПОТРОШИТ: ЭКСКЛЮЗИВНОЕ ИНТЕРВЬЮ',
+            desc: 'Нечто ужасное скрывается в стенах Балтиморской государственной психиатрической больницы для особо опасных преступников. Доктор Абель Гидеон, возможно, и есть Чесапикский Потрошитель.',
+            url: 'articles/art-ripper.html',
+            badge: 'интервью'
+        },
+        {
+            type: 'interview',
+            title: 'ВОР ЗАКУСОК СОВЕРШАЕТ УДАР И ЕМУ НЕ СТЫДНО!',
+            desc: 'Он не оставляет отпечатков пальцев — только крошки. По словам полиции, преступник «опасно прожорлив». Нечто одновременно жуткое и жевательное скрывается в комнате отдыха окружного управления пробации Фентона.',
+            url: 'articles/snack-slasher.html',
+            badge: 'интервью'
+        },
+        {
+            type: 'interview',
+            title: 'БЕЛЫЕ УСЫ И ТИХИЕ ЛАПКИ: КТО ТОПЧЕТ МОИ ЦВЕТЫ??',
+            desc: 'Будьте осторожны! Рыжие коты невероятно очаровательны. В настоящее время в Балтиморе действует целая банда рыжих пушистиков, покоряющая всех вокруг.',
+            url: '#',
+            badge: 'интервью'
+        },
+        {
+            type: 'telegram',
+            title: 'Ого! Невероятно замечательный переводчик',
+            desc: 'Невероятно замечательный переводчик переводит невероятно замечательные вещи! Мы любим тебя, Ягняние Молчат!',
+            url: 'https://t.me/lecterpurr',
+            badge: 'дополнительно'
+        },
+        {
+            type: 'telegram',
+            title: 'Хе-хе, здесь очень прелестно!',
+            desc: 'Целый канал, посвящённый HEU? Вам стоит изучить это подробнее! Ездим на двух лошадях с 2004-го года.',
+            url: 'https://t.me/heuconfession',
+            badge: 'дополнительно'
+        },
+        {
+            type: 'telegram',
+            title: 'Гляди! Такой милый тгк с потрясающим оформлением уже ждёт тебя!',
+            desc: 'Такой милый тгк с потрясающим оформлением уже ждёт тебя!',
+            url: 'https://t.me/madsmikklsns_church',
+            badge: 'дополнительно'
+        }
     ];
 
     function performSearch() {
@@ -35,12 +85,14 @@
             resultsContainer.style.display = 'none';
             return;
         }
-        const results = searchableContent.filter(item => 
-            item.title.toLowerCase().includes(query) || 
+
+        const results = searchableContent.filter(item =>
+            item.title.toLowerCase().includes(query) ||
             item.desc.toLowerCase().includes(query)
         );
+
         if (results.length === 0) {
-            resultsList.innerHTML = '<div class="search-result-item">No results found. Try a different keyword.</div>';
+            resultsList.innerHTML = '<div class="search-result-item">Ничего не найдено. Попробуйте другое слово.</div>';
         } else {
             resultsList.innerHTML = results.map(item => `
                 <div class="search-result-item">
@@ -52,6 +104,7 @@
                 </div>
             `).join('');
         }
+
         resultsContainer.style.display = 'block';
         resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -96,7 +149,7 @@
     const confirmInput = document.getElementById('modalConfirmPassword');
 
     let currentMode = 'login';
-    
+
     function openModal(mode) {
         currentMode = mode;
         usernameInput.value = '';
@@ -105,60 +158,66 @@
         usernameInput.setCustomValidity('');
         passwordInput.setCustomValidity('');
         if (confirmInput) confirmInput.setCustomValidity('');
-        
+
         if (mode === 'login') {
-            modalTitle.textContent = 'Login';
-            modalSubmitBtn.textContent = 'Login';
+            modalTitle.textContent = 'Войти';
+            modalSubmitBtn.textContent = 'Войти';
             confirmGroup.style.display = 'none';
             confirmInput.removeAttribute('required');
         } else {
-            modalTitle.textContent = 'Sign Up';
-            modalSubmitBtn.textContent = 'Sign Up';
+            modalTitle.textContent = 'Регистрация';
+            modalSubmitBtn.textContent = 'Зарегистрироваться';
             confirmGroup.style.display = 'block';
             confirmInput.setAttribute('required', 'required');
         }
         modal.style.display = 'flex';
         setTimeout(() => usernameInput.focus(), 50);
     }
+
     function closeModal() {
         modal.style.display = 'none';
     }
+
     function showJokeMessage() {
-        alert("Sorry, this website is just a joke. You can't register or log in, silly. :)");
+        alert('Извините, этот сайт — просто шутка. Вы не можете зарегистрироваться или войти, глупыш. :)');
     }
+
     function handleSubmit(e) {
         e.preventDefault();
-        
+
         const username = usernameInput.value.trim();
         const password = passwordInput.value.trim();
+
         if (username === '') {
-            alert("Please enter a username.");
+            alert('Пожалуйста, введите имя пользователя.');
             usernameInput.focus();
             return false;
         }
         if (password === '') {
-            alert("Please enter a password.");
+            alert('Пожалуйста, введите пароль.');
             passwordInput.focus();
             return false;
         }
-        
+
         if (currentMode === 'signup') {
             const confirm = confirmInput.value.trim();
             if (confirm === '') {
-                alert("Please confirm your password.");
+                alert('Пожалуйста, подтвердите пароль.');
                 confirmInput.focus();
                 return false;
             }
             if (password !== confirm) {
-                alert("Passwords do not match. Try again.");
+                alert('Пароли не совпадают. Попробуйте ещё раз.');
                 confirmInput.focus();
                 return false;
             }
         }
+
         showJokeMessage();
         closeModal();
         return false;
     }
+
     if (loginLink) {
         loginLink.addEventListener('click', function(e) {
             e.preventDefault();
@@ -177,19 +236,19 @@
     if (authForm) {
         authForm.addEventListener('submit', handleSubmit);
     }
-    
+
     window.addEventListener('click', function(e) {
         if (e.target === modal) {
             closeModal();
         }
     });
-    
+
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
             closeModal();
         }
     });
-    
+
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', function(e) {
             e.stopPropagation();
