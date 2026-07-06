@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>tattlecrime - Фредди Лаундс</title>
+    <link rel="icon" type="image/png" href="assets/images/фавиконка.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="hero-area">
+        <div class="hero-flex">
+            <div class="brand-section">
+                <div class="main-logo">
+                    <span class="tattle">tattle</span><span class="crime">crime</span><span class="small-dotcom">.com</span>
+                </div>
+                <div class="freddie">Фредди Лаундс</div>
+            </div>
+            <div class="user-area">
+                <div class="auth-wrapper">
+                    <div class="auth-links">
+                        <a href="#" id="loginLink">войти</a>
+                        <span class="vert-dashed" aria-hidden="true"></span>
+                        <a href="#" id="signupLink">регистрация</a>
+                    </div>
+                    <div class="auth-underline"></div>
+                </div>
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Поиск в tattlecrime...">
+                    <button class="search-btn">ПОИСК</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-card">
+        <div class="main-content">
+            <div class="top-nav">
+                <div class="nav-container">
+                    <ul class="nav-links">
+                        <li><a href="index.html">главная</a></li>
+                        <li><a href="articles.html">статьи</a></li>
+                        <li><a href="fact-check.html">фактология</a></li>
+                        <li><a href="press-pass.html">пресс-пропуск</a></li>
+                        <li><a href="candids.html">галерея</a></li>
+                    </ul>
+                    <div class="nav-about">
+                        <a href="about.html">о нас</a>
+                        <div class="about-icons">
+                            <img src="https://i.pinimg.com/736x/1b/99/b0/1b99b01522fa3359e3e13497f5121773.jpg" alt="icon1">
+                            <img src="https://i.pinimg.com/736x/94/68/15/946815f30e42ae74087c273a7ba87dbc.jpg" alt="icon2">
+                            <img src="https://i.pinimg.com/736x/0c/ff/4f/0cff4f6ef3db98b8109e8c72e402f188.jpg" alt="icon3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="searchResults" class="search-results-container">
+                <button id="closeResults" class="close-results" aria-label="Close results">✕</button>
+                <h2>Результат поиска</h2>
+                <div id="resultsList"></div>
+            </div>
+
+            <h1>Галерея</h1>
+            <p>Нажмите на любую фотографию, чтобы просмотреть её в полном размере.</p>
+
+            <div class="candids-grid">
+                <div class="candid-card" data-index="0">
+                    <div class="candid-image-wrapper">
+                        <img src="assets/images/candidsPHOTO/AgentCrawford1.jpg" alt="Candid 1">
+                        <div class="candid-overlay"><span class="candid-number">Агент Кроуфорд</span></div>
+                    </div>
+                </div>
+                <div class="candid-card" data-index="1">
+                    <div class="candid-image-wrapper">
+                        <img src="assets/images/candidsPHOTO/BeverlyKatz1.jpg" alt="Candid 2">
+                        <div class="candid-overlay"><span class="candid-number">Дело «Человеческий Мицелий»</span></div>
+                    </div>
+                </div>
+                <div class="candid-card" data-index="2">
+                    <div class="candid-image-wrapper">
+                        <img src="assets/images/candidsPHOTO/BrianZeller1.jpg" alt="Candid 3">
+                        <div class="candid-overlay"><span class="candid-number">Дело "Тотем"</span></div>
+                    </div>
+                </div>
+                <div class="candid-card" data-index="3">
+                    <div class="candid-image-wrapper">
+                        <img src="assets/images/candidsPHOTO/JimmyPrice1.jpg" alt="Candid 4">
+                        <div class="candid-overlay"><span class="candid-number">Дело «Человеческий Мицелий»</span></div>
+                    </div>
+                </div>
+            </div>
+            <h1>Ой, ФБР конфисковало всё остальное!</h1>
+            <p>Мы сейчас крадём наши фото обратно, извините.</p>
+        </div>
+    </div>
+</div>
+
+<div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Full view">
+        <div class="lightbox-nav">
+            <span class="lightbox-dot prev-dot">&#9679;</span>
+            <span class="lightbox-dot next-dot">&#9679;</span>
+        </div>
+        <a id="download-btn" class="download-btn" download>Скачать</a>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
