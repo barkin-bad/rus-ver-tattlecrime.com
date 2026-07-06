@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>tattlecrime - Фредди Лаундс</title>
+    <link rel="icon" type="image/png" href="assets/images/фавиконка.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="hero-area">
+        <div class="hero-flex">
+            <div class="brand-section">
+                <div class="main-logo">
+                    <span class="tattle">tattle</span><span class="crime">crime</span><span class="small-dotcom">.com</span>
+                </div>
+                <div class="freddie">Фредди Лаундс</div>
+            </div>
+            <div class="user-area">
+                <div class="auth-wrapper">
+                    <div class="auth-links">
+                        <a href="#" id="loginLink">войти</a>
+                        <span class="vert-dashed" aria-hidden="true"></span>
+                        <a href="#" id="signupLink">регистрация</a>
+                    </div>
+                    <div class="auth-underline"></div>
+                </div>
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Поиск в tattlecrime...">
+                    <button class="search-btn">ПОИСК</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-card">
+        <div class="main-content">
+            <div class="top-nav">
+                <div class="nav-container">
+                    <ul class="nav-links">
+                        <li><a href="index.html">главная</a></li>
+                        <li><a href="articles.html">статьи</a></li>
+                        <li><a href="fact-check.html">фактология</a></li>
+                        <li><a href="press-pass.html">пресс-пропуск</a></li>
+                        <li><a href="candids.html">галерея</a></li>
+                    </ul>
+                    <div class="nav-about">
+                        <a href="about.html">о нас</a>
+                        <div class="about-icons">
+                            <img src="https://i.pinimg.com/736x/1b/99/b0/1b99b01522fa3359e3e13497f5121773.jpg" alt="icon1">
+                            <img src="https://i.pinimg.com/736x/94/68/15/946815f30e42ae74087c273a7ba87dbc.jpg" alt="icon2">
+                            <img src="https://i.pinimg.com/736x/0c/ff/4f/0cff4f6ef3db98b8109e8c72e402f188.jpg" alt="icon3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="searchResults" class="search-results-container">
+                <button id="closeResults" class="close-results" aria-label="Close results">✕</button>
+                <h2>Результат поиска</h2>
+                <div id="resultsList"></div>
+            </div>
+
+    <div class="main-card">
+        <div class="main-content">
+            <h1>О, ты подумал, что это правда?</h1>
+            <p>У Фредди Лаундс не может быть глупого пресс-пропуска!</p>
+            <p>Но тебе, наверное, всё равно хочется что-нибудь получить, да? Ты немного жадный, малыш.</p>
+            <p>Не волнуйся, ты получишь всё необходимое.</p>
+            <p>Пройдите этот небольшой тест. Возможно, он вам понравится.</p>
+            <h1>Тест находится в стадии разработки. :)</h1>
+        </div>
+    </div>
+</div>
+        
+<div id="authModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="modalTitle">Войти</h2>
+        <form id="authForm">
+            <input type="text" id="modalUsername" placeholder="Имя пользователя" autocomplete="off" required>
+            <input type="password" id="modalPassword" placeholder="Пароль" required>
+            <div id="confirmPasswordGroup" style="display: none;">
+                <input type="password" id="modalConfirmPassword" placeholder="Confirm Password">
+            </div>
+            <button type="submit" id="modalSubmitBtn">Войти</button>
+        </form>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
