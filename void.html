@@ -1,146 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eyes</title>
+    <title>Тьма</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        html,
         body {
-            background: #000;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
-        }
-
-        .eyes-container {
-            display: flex;
-            gap: 80px;
-            position: relative;
-        }
-
-        .eye {
-            width: 120px;
-            height: 80px;
-            background: #fff;
-            border-radius: 50%;
-            position: relative;
-            overflow: hidden;
- 
-            animation: blink 4.5s ease-in-out infinite;
-        }
-
-        .pupil {
-            width: 50px;
-            height: 50px;
             background: #000;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
-
-        @keyframes blink {
-            0%,
-            100% {
-                transform: scaleY(1);
-            }
-            94% {
-                transform: scaleY(1);
-            }
-            96% {
-                transform: scaleY(0.04);
-            }
-            98% {
-                transform: scaleY(0.04);
-            }
-            100% {
-                transform: scaleY(1);
-            }
-        }
-
-        .eye:nth-child(1) .pupil {
-            animation: look1 6s ease-in-out infinite;
-        }
-
-        .eye:nth-child(2) .pupil {
-            animation: look2 6s ease-in-out infinite;
-        }
-
-        @keyframes look1 {
-            0%,
-            100% {
-                transform: translate(-50%, -50%);
-            }
-            25% {
-                transform: translate(-40%, -55%);
-            }
-            50% {
-                transform: translate(-55%, -45%);
-            }
-            75% {
-                transform: translate(-45%, -60%);
-            }
-        }
-
-        @keyframes look2 {
-            0%,
-            100% {
-                transform: translate(-50%, -50%);
-            }
-            25% {
-                transform: translate(-60%, -45%);
-            }
-            50% {
-                transform: translate(-40%, -55%);
-            }
-            75% {
-                transform: translate(-55%, -40%);
-            }
-        }
-
-    
-        .eye,
-        .pupil {
-            box-shadow: none;
-            filter: none;
-            border: none;
-            outline: none;
-        }
-
-        @media (max-width: 480px) {
-            .eyes-container {
-                gap: 40px;
-            }
-            .eye {
-                width: 80px;
-                height: 54px;
-            }
-            .pupil {
-                width: 34px;
-                height: 34px;
-            }
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
         }
     </style>
 </head>
 <body>
+    <canvas id="c"></canvas>
+    <script>
+        const canvas = document.getElementById('c');
+        const ctx = canvas.getContext('2d');
 
-    <div class="eyes-container">
-        <div class="eye">
-            <div class="pupil"></div>
-        </div>
-        <div class="eye">
-            <div class="pupil"></div>
-        </div>
-    </div>
+        let W, H;
 
+        function resize() {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+            draw();
+        }
+
+        function drawEye(x, y, w, h, lookX, lookY) {
+            const halfW = w / 2;
+            const halfH = h / 2;
+
+            ctx.beginPath();
+            ctx.moveTo(x - halfW, y);
+            ctx.bezierCurveTo(x - halfW, y - halfH * 0.7, x - halfW * 0.5, y - halfH, x, y - halfH);
+            ctx.bezierCurveTo(x + halfW * 0.5, y - halfH, x + halfW, y - halfH * 0.7, x + halfW, y);
+            ctx.bezierCurveTo(x + halfW, y + halfH * 0.7, x + halfW * 0.5, y + halfH, x, y + halfH);
+            ctx.bezierCurveTo(x - halfW * 0.5, y + halfH, x - halfW, y + halfH * 0.7, x - halfW, y);
+            ctx.closePath();
+            ctx.fillStyle = '#fcfcfc';
+            ctx.fill();
+
+            const pupilR = Math.min(halfW, halfH) * 0.38;
+            const maxOffX = halfW * 0.25;
+            const maxOffY = halfH * 0.25;
+            const offX = Math.max(-maxOffX, Math.min(maxOffX, lookX * maxOffX));
+            const offY = Math.max(-maxOffY, Math.min(maxOffY, lookY * maxOffY));
+
+            ctx.beginPath();
+            ctx.arc(x + offX, y + offY, pupilR, 0, Math.PI * 2);
+            ctx.fillStyle = '#0a0a0a';
+            ctx.fill();
+        }
+
+        function draw() {
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, W, H);
+
+            const eyes = [
+                [0.18, 0.25, 70, 44, 0.0, 0.0],
+                [0.38, 0.42, 56, 35, 0.1, -0.1],
+                [0.55, 0.22, 90, 56, 0.0, 0.0],
+                [0.78, 0.48, 62, 39, -0.05, 0.05],
+                [0.92, 0.20, 48, 30, 0.0, 0.0],
+                [0.22, 0.70, 52, 33, -0.1, 0.0],
+                [0.48, 0.78, 40, 25, 0.0, 0.1],
+                [0.68, 0.72, 58, 36, 0.05, -0.05],
+                [0.88, 0.78, 44, 28, 0.0, 0.0],
+                [0.42, 0.12, 36, 23, 0.0, 0.0],
+                [0.74, 0.35, 38, 24, 0.0, 0.0],
+                [0.06, 0.50, 32, 20, 0.15, 0.0],
+                [0.95, 0.60, 30, 19, -0.1, 0.0],
+                [0.12, 0.88, 28, 18, 0.0, -0.1],
+                [0.62, 0.90, 34, 21, 0.0, 0.0],
+                [0.30, 0.55, 46, 29, 0.0, 0.0],
+            ];
+
+            for (const e of eyes) {
+                const x = e[0] * W;
+                const y = e[1] * H;
+                const w = e[2];
+                const h = e[3];
+                const lx = e[4];
+                const ly = e[5];
+                drawEye(x, y, w, h, lx, ly);
+            }
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+    </script>
 </body>
 </html>
