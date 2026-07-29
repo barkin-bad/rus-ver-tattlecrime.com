@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eyes</title>
     <style>
         * {
             margin: 0;
             padding: 0;
         }
-
-        html,
         body {
-            width: 100%;
-            height: 100%;
             background: #000;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
-
-        .eyes {
-            display: flex;
-            gap: 80px;
-        }
-
-        .eye {
-            width: 120px;
-            height: 120px;
-            background: #fff;
-            border-radius: 50%;
+        svg {
+            display: block;
+            width: 90vmin;
+            height: 45vmin;
+            max-width: 800px;
+            max-height: 400px;
         }
     </style>
 </head>
 <body>
-    <div class="eyes">
-        <div class="eye"></div>
-        <div class="eye"></div>
-    </div>
+    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="130" cy="100" rx="70" ry="55" fill="#ffffff" />
+        <circle cx="130" cy="100" r="28" fill="#000000" />
+        <ellipse cx="270" cy="100" rx="70" ry="55" fill="#ffffff" />
+        <circle cx="270" cy="100" r="28" fill="#000000" />
+    </svg>
 </body>
 </html>
