@@ -1,106 +1,42 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Тьма</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyes</title>
     <style>
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
+
         html,
         body {
             width: 100%;
             height: 100%;
-            overflow: hidden;
             background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        canvas {
-            display: block;
-            width: 100vw;
-            height: 100vh;
-            background: #000;
+
+        .eyes {
+            display: flex;
+            gap: 80px;
+        }
+
+        .eye {
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
-    <canvas id="c"></canvas>
-    <script>
-        const canvas = document.getElementById('c');
-        const ctx = canvas.getContext('2d');
-
-        let W, H;
-
-        function resize() {
-            W = canvas.width = window.innerWidth;
-            H = canvas.height = window.innerHeight;
-            draw();
-        }
-
-        function drawEye(x, y, w, h, lookX, lookY) {
-            const halfW = w / 2;
-            const halfH = h / 2;
-
-            ctx.beginPath();
-            ctx.moveTo(x - halfW, y);
-            ctx.bezierCurveTo(x - halfW, y - halfH * 0.7, x - halfW * 0.5, y - halfH, x, y - halfH);
-            ctx.bezierCurveTo(x + halfW * 0.5, y - halfH, x + halfW, y - halfH * 0.7, x + halfW, y);
-            ctx.bezierCurveTo(x + halfW, y + halfH * 0.7, x + halfW * 0.5, y + halfH, x, y + halfH);
-            ctx.bezierCurveTo(x - halfW * 0.5, y + halfH, x - halfW, y + halfH * 0.7, x - halfW, y);
-            ctx.closePath();
-            ctx.fillStyle = '#fcfcfc';
-            ctx.fill();
-
-            const pupilR = Math.min(halfW, halfH) * 0.38;
-            const maxOffX = halfW * 0.25;
-            const maxOffY = halfH * 0.25;
-            const offX = Math.max(-maxOffX, Math.min(maxOffX, lookX * maxOffX));
-            const offY = Math.max(-maxOffY, Math.min(maxOffY, lookY * maxOffY));
-
-            ctx.beginPath();
-            ctx.arc(x + offX, y + offY, pupilR, 0, Math.PI * 2);
-            ctx.fillStyle = '#0a0a0a';
-            ctx.fill();
-        }
-
-        function draw() {
-            ctx.fillStyle = '#000';
-            ctx.fillRect(0, 0, W, H);
-
-            const eyes = [
-                [0.18, 0.25, 70, 44, 0.0, 0.0],
-                [0.38, 0.42, 56, 35, 0.1, -0.1],
-                [0.55, 0.22, 90, 56, 0.0, 0.0],
-                [0.78, 0.48, 62, 39, -0.05, 0.05],
-                [0.92, 0.20, 48, 30, 0.0, 0.0],
-                [0.22, 0.70, 52, 33, -0.1, 0.0],
-                [0.48, 0.78, 40, 25, 0.0, 0.1],
-                [0.68, 0.72, 58, 36, 0.05, -0.05],
-                [0.88, 0.78, 44, 28, 0.0, 0.0],
-                [0.42, 0.12, 36, 23, 0.0, 0.0],
-                [0.74, 0.35, 38, 24, 0.0, 0.0],
-                [0.06, 0.50, 32, 20, 0.15, 0.0],
-                [0.95, 0.60, 30, 19, -0.1, 0.0],
-                [0.12, 0.88, 28, 18, 0.0, -0.1],
-                [0.62, 0.90, 34, 21, 0.0, 0.0],
-                [0.30, 0.55, 46, 29, 0.0, 0.0],
-            ];
-
-            for (const e of eyes) {
-                const x = e[0] * W;
-                const y = e[1] * H;
-                const w = e[2];
-                const h = e[3];
-                const lx = e[4];
-                const ly = e[5];
-                drawEye(x, y, w, h, lx, ly);
-            }
-        }
-
-        window.addEventListener('resize', resize);
-        resize();
-    </script>
+    <div class="eyes">
+        <div class="eye"></div>
+        <div class="eye"></div>
+    </div>
 </body>
 </html>
