@@ -422,7 +422,7 @@
             resultArea.style.display = 'block';
             let message, badgeText;
             if (correctCount >= 8) {
-                message = 'Вы нам подходим.';
+                message = 'Вы нам подходите.';
                 badgeText = 'ПОДХОДИТЕ';
             } else if (correctCount >= 5) {
                 message = 'Есть над чем работать.';
