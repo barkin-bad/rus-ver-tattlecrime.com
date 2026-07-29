@@ -322,4 +322,125 @@
             });
         }
     });
+
+    const quizContainer = document.getElementById('quiz-container');
+    if (quizContainer) {
+        const questions = [
+            {
+                question: 'Где Вы бы стали искать информацию в первую очередь?',
+                options: ['Интернет.', 'Газетные архивы и справочники.', 'Личное интервью.'],
+                correct: 2
+            },
+            {
+                question: 'Вы ранены после личного расследования. Не критично, но есть риск осложнений.',
+                options: ['Поход в больницу, даже если врачи будут спрашивать, откуда такая рана.', 'Самостоятельно окажу себе помощь.', '"Само пройдёт."'],
+                correct: 1
+            },
+            {
+                question: 'Сомнительный источник дал сомнительные данные. Пойдёте ли Вы их проверять самостоятельно на нужном месте?',
+                options: ['Сначала проверю информацию и пойду, если это будет убедительно.', 'Любая игра стоит свеч. Я пойду.', 'Ни в коем случае не пойду, если это не проверенный человек.'],
+                correct: 0
+            },
+            {
+                question: 'Кажется, на Вас вышел преступник или считающий себя таковым. Что нужно делать с этим?',
+                options: ['Звонок в полицию.', 'Возьму интервью и потом поработаю с материалом.', 'Буду выстраивать доверительные отношения. Может, это просто больной человек, который нуждается в заботе?'],
+                correct: 1
+            },
+            {
+                question: 'Вам нужно попасть на место. Какой у вас транспорт?',
+                options: ['Байк/Велосипед.', 'Пешком.', 'Машина.'],
+                correct: 2
+            },
+            {
+                question: 'Если бы тебе предложили прочитать дневники убийцы до того, как их отдадут в ФБР, ты бы согласилась?',
+                options: ['Я бы вырвала страницы для своей книги.', 'Нет, это улики.', 'Я бы сделала копии и вернула оригинал.'],
+                correct: 0
+            },
+            {
+                question: 'Кто такой Ганнибал Лектер?',
+                options: ['Невиновный.', 'Каннибал.', 'Убийца.'],
+                correct: 2
+            },
+            {
+                question: 'Кто такой Уилл Грэм?',
+                options: ['Невиновный.', 'Аутист.', 'Убийца.'],
+                correct: 2
+            },
+            {
+                question: 'Кто такие Уилл и Ганнибал?',
+                options: ['Мужья-убийцы.', 'Люди с "folie à deux" - безумием на двоих.', 'Двое больных людей.'],
+                correct: 0
+            },
+            {
+                question: 'Кто такая Фредди Лаундс?',
+                options: ['Самый прелестный журналист на свете.', 'Выскочка.', 'Рыжая бестия.'],
+                correct: 0
+            }
+        ];
+
+        let currentIndex = 0;
+        let correctCount = 0;
+        let answered = false;
+
+        const questionNumberEl = document.getElementById('question-number');
+        const questionTextEl = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const resultArea = document.getElementById('result-area');
+        const questionArea = document.getElementById('question-area');
+
+        function renderQuestion(index) {
+            if (index >= questions.length) {
+                showResult();
+                return;
+            }
+            answered = false;
+            const q = questions[index];
+            questionNumberEl.textContent = 'Вопрос ' + (index + 1) + ' из ' + questions.length;
+            questionTextEl.textContent = q.question;
+            optionsContainer.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt;
+                btn.dataset.index = idx;
+                btn.addEventListener('click', function(e) {
+                    if (answered) return;
+                    answered = true;
+                    if (idx === q.correct) {
+                        correctCount++;
+                    }
+                    renderQuestion(index + 1);
+                });
+                optionsContainer.appendChild(btn);
+            });
+            resultArea.style.display = 'none';
+            questionArea.style.display = 'block';
+        }
+
+        function showResult() {
+            questionArea.style.display = 'none';
+            resultArea.style.display = 'block';
+            let message, badgeText;
+            if (correctCount >= 8) {
+                message = 'Вы нам подходим.';
+                badgeText = 'ПОДХОДИТЕ';
+            } else if (correctCount >= 5) {
+                message = 'Есть над чем работать.';
+                badgeText = 'РАБОТАТЬ';
+            } else {
+                message = 'Уходи.';
+                badgeText = 'УХОДИ';
+                window.location.href = 'void.html';
+                return;
+            }
+            resultArea.innerHTML = `
+                <h2>Результат</h2>
+                <p>${message}</p>
+                <p>Правильных ответов: ${correctCount} из ${questions.length}</p>
+                <div class="result-badge">${badgeText}</div>
+            `;
+        }
+
+        renderQuestion(0);
+    }
 })();
